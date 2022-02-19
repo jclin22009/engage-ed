@@ -1,18 +1,77 @@
 import React from "react";
 import { render } from "react-dom";
 import ReactQuill, { Quill } from "react-quill";
+import BlockEmbed from '../node_modules/quill/blots/block';
 import "react-quill/dist/quill.snow.css";
 var icons = Quill.import('ui/icons');
-let img = '<img src="https://icon-library.com/images/multiple-choice-icon/multiple-choice-icon-18.jpg" width="18" height="18">'
-icons['color'] = img
+
+
+/*let img = '<img src="https://icon-library.com/images/multiple-choice-icon/multiple-choice-icon-18.jpg" width="18" height="18">'
+icons['color'] = img*/
 
 const CustomHeart = () => <span>♥</span>;
 
 function insertHeart() {
   const cursorPosition = this.quill.getSelection().index;
-  this.quill.insertText(cursorPosition, "♥");
+  this.quill.insertText(cursorPosition, "amogus");
   this.quill.setSelection(cursorPosition + 1);
-  this.quill.insertEmbed(10, 'image', 'https://quilljs.com/images/cloud.png')
+  console.log("hello from first function");
+/*this.quill.insertEmbed(10, 'image', 'https://quilljs.com/images/cloud.png')*/
+}
+
+class Signature extends BlockEmbed {
+  static create(value) {
+    const node = super.create(value);
+    node.contentEditable = 'false';
+    this._addSignature(node, value);
+    return node;
+  }
+
+  static value(node) {
+    return node.getAttribute(Signature.blotName)
+  }
+
+  static _addSignature(node, value) {
+    node.setAttribute(Signature.blotName, value);
+
+    // This is a simple switch, but you can use
+    // whatever method of building HTML you need.
+    // Could even be async.
+    switch (value) {
+      case 1:
+        return this._addSignature1(node);
+      default:
+        throw new Error(`Unknown signature type ${ value }`);
+    }
+  }
+
+  static _addSignature1(node) {
+    const div = document.createElement('DIV');
+    div.textContent = 'Signature with image';
+    const img = document.createElement('IMG');
+    img.src = 'https://example.com/image.jpg';
+
+    node.appendChild(div);
+    node.appendChild(img);
+  }
+}
+Signature.blotName = 'signature';
+Signature.tagName = 'DIV';
+Signature.className = 'ql-signature';
+
+Quill.register(Signature);
+
+const CustomOther = () => <span>Test</span>;
+
+const value = `<h1>New content here</h1>`
+
+function insertOther() {
+  const cursorPosition = this.quill.getSelection().index;
+  const delta = this.quill.clipboard.convert(value)
+  this.quill.setContents(delta, 'silent');
+  console.log("hello from function");
+  this.quill.setSelection(cursorPosition + 1);
+/*this.quill.insertEmbed(10, 'image', 'https://quilljs.com/images/cloud.png')*/
 }
 
 /*
@@ -44,6 +103,9 @@ const CustomToolbar = () => (
     <button className="ql-clean" />
     <button className="ql-insertHeart">
       <CustomHeart />
+    </button>
+    <button className="ql-insertOther">
+      <CustomOther />
     </button>
   </div>
 );
@@ -79,7 +141,8 @@ class Editor extends React.Component {
     toolbar: {
       container: "#toolbar",
       handlers: {
-        insertHeart: insertHeart
+        insertHeart: insertHeart,
+        insertOther: insertOther
       }
     }
   };
