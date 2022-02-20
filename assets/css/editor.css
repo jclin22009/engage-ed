@@ -1,7 +1,7 @@
 /*-----------------------------------------------------------------------------------
 
     Template Name: Zoomy - E-learning HTML5 Template
-    Author: 
+    Author:
     Version: 1.0
 
 -----------------------------------------------------------------------------------
@@ -15,7 +15,7 @@
     04. common
     05. overlay
     06. header
-    07. breadcrumb 
+    07. breadcrumb
     08. mobile-menu
     09. search
     10. custom-animation
@@ -343,6 +343,13 @@ label {
   }
 }
 
+section {
+  border: 1px dotted black;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
 /*--
 section-title
 ----------------------------------------*/
