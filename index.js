@@ -2,6 +2,8 @@ const express = require("express")
 const path = require("path")
 const bodyParser = require("body-parser")
 const fs = require("fs");
+const cookieParser = require("cookie-parser");
+
 const app = express()
 
 // View Engine Setup
@@ -15,6 +17,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.text({
   type: "text/html"
 }));
+app.use(cookieParser());
 
 app.get("/",function(req,res){
     res.render("Home");
@@ -48,8 +51,12 @@ app.get("/testcourse",function(req,res){
 })
 
 app.get("/viewcourse",function(req,res){
-    var lessonTitle = req.header("X-Lesson");
+    //var x = document.cookie;
+    //console.log("Cookie is " + x);
+    var lessonTitle = req.cookies['lesson'];
     res.render("Boilerplate", {data: lessonTitle});
+    /*var lessonTitle = req.header("X-Lesson");
+    res.render("Boilerplate", {data: lessonTitle});*/
 })
 
 app.post("/publish",function (req, res, next) {
