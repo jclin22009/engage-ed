@@ -49,7 +49,14 @@ body {
   line-height: 25px;
   font-weight: 400;
   font-style: normal;
+  color: #000000;
+}
+
+.document-title {
+  font-weight: 400;
+  font-family: "Manrope", sans-serif;
   color: #707070;
+  margin-bottom: 0;
 }
 
 .f-left {
@@ -68,6 +75,7 @@ a,
 .button {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  
 }
 
 a:focus,
@@ -87,6 +95,7 @@ button {
   color: inherit;
   outline: medium none;
   text-decoration: none;
+  border-radius: 12px;
 }
 
 button:focus, input:focus, input:focus, textarea, textarea:focus {
@@ -161,6 +170,7 @@ li {
 }
 
 p {
+
   font-family: "Manrope", sans-serif;
   color: #000000;
 }
@@ -619,6 +629,11 @@ section-title
 
 #scrollUp i {
   color: #ffffff;
+}
+
+form {
+  line-height: 200%;
+  font-family:"manrope";
 }
 
 /*--
@@ -1403,6 +1418,9 @@ ul.breadcrumb li a {
   color: #ffffff;
 }
 
+input {
+  margin-top: 10px;
+}
 /* Menu Search
 -------------------------------------------------------*/
 .header-2-icon {
