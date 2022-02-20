@@ -1,27 +1,29 @@
 <html>
-
 <head>
     <!-- Include Quill stylesheet -->
-    <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+    <title> <%= data %> </title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <title> EngageEd </title>
-
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/editor.css">
+    <link rel="stylesheet" href="assets/css/quillRender.css">
     <nav class="navbar navbar-light bg-light">
 
         <a class="navbar-brand ms-3" href="/">
             <h2>Engag<b>Ed</b></h2>
         </a>
-        <a id="courseTitle" contenteditable="false" class="document-title"><%= data %></a>
+        <a id="courseTitle" contenteditable="false"><center><%= data %></center><a>
     </nav>
 
 </head>
 
 <body>
     <!-- Lesson output goes here! -->
+<<<<<<< HEAD
     <%- include('../lessons/' + data + '.ejs') %>
 
+=======
+    <div class="ql-render">
+        <%- include('../lessons/' + data) %>
+    </div>
+>>>>>>> 0dcc6116005184729f9f3b7d1af0cab6743b4dc7
     <!-- Include the Quill library -->
     <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
     <script src="assets/js/customQuill.js"></script>
