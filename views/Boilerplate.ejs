@@ -2,10 +2,7 @@
 
 <head>
     <!-- Include Quill stylesheet -->
-    <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-
+    <link rel="stylesheet" href="assets/css/quillRender.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/editor.css">
     <nav class="navbar navbar-light bg-light">
@@ -20,8 +17,9 @@
 
 <body>
     <!-- Lesson output goes here! -->
-    <%- include('../lessons/' + data) %>
-
+    <div class="ql-render">
+        <%- include('../lessons/' + data) %>
+    </div>
     <!-- Include the Quill library -->
     <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
     <script src="assets/js/customQuill.js"></script>
