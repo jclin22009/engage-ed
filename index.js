@@ -73,5 +73,5 @@ app.post("/publish",function (req, res, next) {
 // is not taken by any other process
 app.listen(8080,function(error) {
     if(error) throw error
-        console.log("EngageEd started successfully!PORT 8080")
+    console.log("EngageEd started successfully at http://localhost:8080/");
 })
