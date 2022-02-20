@@ -4,15 +4,19 @@
   <!-- Include Quill stylesheet -->
   <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/editor.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+  <nav class="navbar navbar-light bg-light">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand ms-3" href="/">Engag<b>Ed</b></a>
-      <a id="courseTitle" contenteditable="true">Name Your Course</a>
-      <button class="btn btn-outline-success my-2 my-sm-0 me-3" onclick="uploadEditorContent()">Create</button>
+    <a class="navbar-brand ms-3" href="/">
+      <h2>Engag<b>Ed</b></h2>
+    </a>
+    <a id="courseTitle" contenteditable="true" class="document-title">Name Your Course</a>
+    <button class="btn btn-outline-success my-2 my-sm-0 me-3" onclick="uploadEditorContent()">Create</button>
 
-    </nav>
+  </nav>
 
 </head>
 
@@ -34,6 +38,8 @@
     <button class="ql-bold">Bold</button>
     <button class="ql-italic">Italic</button>
     <button class="ql-underline">Underline</button>
+    <select class="ql-color"></select>
+    <select class="ql-background"></select>
 
     <button class="ql-divider"></button>
 
@@ -42,6 +48,7 @@
     <button class="ql-link"></button>
     <button class="ql-formula"></button>
     <button class="ql-blockquote"></button>
+    <button class="ql-formula"></button>
 
     <button class="ql-divider"></button>
 
@@ -51,8 +58,8 @@
     <button class="ql-indent" value="+1"></button>
     <button class="ql-divider"></button>
 
-    <button id="longAnswer"><b>?</b></button>
-    <button id="multipleChoice"><b>o</b></button>
+    <button id="longAnswer"><img src="https://img.icons8.com/fluency-systems-regular/18/000000/hand-with-pen.png"/></button>
+    <button id="multipleChoice"><img src="https://img.icons8.com/material-outlined/18/000000/multiple-choice.png"/></button>
 
   </div>
   <!-- <div id="sidebar-controls">
@@ -64,7 +71,7 @@
 
   <!-- Create the editor container -->
   <div id="editor">
-    <p>Hello World!</p>
+    <p>Hello world!</p>
   </div>
 
   <!-- Include the Quill library -->
