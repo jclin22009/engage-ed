@@ -24,8 +24,8 @@ app.get("/editor",function(req,res){
     res.render("Editor");
 })
 
-app.get("/lessons",function(req,res){
-    res.render("Lessons");
+app.get("/browse",function(req,res){
+    res.render("Browse");
 })
 
 app.get("/test",function(req,res){
@@ -33,7 +33,9 @@ app.get("/test",function(req,res){
 })
 
 app.post("/publish",function (req, res, next) {
+    console.log("Received req");
     var lessonTitle = req.header("X-Title");
+    console.log(lessonTitle);
     var body = req.body;
     fs.writeFile("lessons/" + lessonTitle + ".ejs", body, function(err) {
       if (err) {
