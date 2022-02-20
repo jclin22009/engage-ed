@@ -2,20 +2,21 @@
 
 <head>
   <!-- Include Quill stylesheet -->
-  <link href="highlight.js/monokai-sublime.min.css" rel="stylesheet">
   <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/editor.css">
-    <nav class="navbar navbar-light bg-light">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/editor.css">
+  <nav class="navbar navbar-light bg-light">
 
-      <a class="navbar-brand ms-3" href="/"><h2>Engag<b>Ed</b></h2></a>
-      <a id="courseTitle" contenteditable="true" class="document-title">Name Your Course</a>
-      <button class="btn btn-outline-success my-2 my-sm-0 me-3" onclick="uploadEditorContent()">Create</button>
+    <a class="navbar-brand ms-3" href="/">
+      <h2>Engag<b>Ed</b></h2>
+    </a>
+    <a id="courseTitle" contenteditable="true" class="document-title">Name Your Course</a>
+    <button class="btn btn-outline-success my-2 my-sm-0 me-3" onclick="uploadEditorContent()">Create</button>
 
-    </nav>
+  </nav>
 
 </head>
 
@@ -37,6 +38,8 @@
     <button class="ql-bold">Bold</button>
     <button class="ql-italic">Italic</button>
     <button class="ql-underline">Underline</button>
+    <select class="ql-color"></select>
+    <select class="ql-background"></select>
 
     <button class="ql-divider"></button>
 
@@ -45,6 +48,7 @@
     <button class="ql-link"></button>
     <button class="ql-formula"></button>
     <button class="ql-blockquote"></button>
+    <button class="ql-formula"></button>
 
     <button class="ql-divider"></button>
 
@@ -67,7 +71,7 @@
 
   <!-- Create the editor container -->
   <div id="editor">
-    <p>Hello World!</p>
+    <p>Hello world!</p>
   </div>
 
   <!-- Include the Quill library -->
