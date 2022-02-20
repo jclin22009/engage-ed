@@ -35,14 +35,60 @@ class LongAnswer extends BlockEmbed {
 // define elements of long answer
   static _addLongAnswer1(node) {
     LongAnswer.count++;
-    const header = document.createElement('h2');
-    header.innerHTML = `${LongAnswer.count}. We have a question for you`;
-    const field = document.createElement('TEXTAREA');
-    field.placeholder = 'Type your answer';
 
-    node.appendChild(header);
-    node.appendChild(field);
+    //create section where long answers can be inputted
+    let longAnswerEntry = document.createElement("section");
 
+    //create header, add to section
+    let longAnswerHeader = document.createElement("h3");
+    longAnswerHeader.innerHTML = "Add Long Answer Question";
+    longAnswerEntry.append(longAnswerHeader);
+
+    //create form, add to section
+    let longForm = document.createElement("form");
+    longForm.id = "saForm";
+    longAnswerEntry.append(longForm);
+
+    //add labels and inputs to form
+    let questionInput = document.createElement("input");
+    questionInput.type = "text";
+    questionInput.name = "question";
+    questionInput.id = "teacherQuestion";
+    let questionLabel = document.createElement("label");
+    questionLabel.innerHTML = "Question: ";
+    questionLabel.for = questionInput;
+    longForm.append(questionLabel);
+    longForm.append(questionInput);
+
+    let qBr = document.createElement("br");
+    longForm.append(qBr);
+
+    //create input and label for answer. append to form
+    let answerInput = document.createElement("input");
+    answerInput.type = "text";
+    answerInput.name = "answer";
+    answerInput.id = "mcAnswer";
+    let answerLabel = document.createElement("label");
+    answerLabel.innerHTML = "Answer: ";
+    answerLabel.for = answerInput;
+    longForm.append(answerLabel);
+    longForm.append(answerInput);
+
+    let aBr = document.createElement("br");
+    longForm.append(aBr);
+
+    //create input and label for explanation. append to form
+    let explanationInput = document.createElement("input");
+    explanationInput.type = "text";
+    explanationInput.name = "explanation";
+    explanationInput.id = "mcExplanation";
+    let explanationLabel = document.createElement("label");
+    explanationLabel.innerHTML = "Explanation: ";
+    explanationLabel.for = explanationInput;
+    longForm.append(explanationLabel);
+    longForm.append(explanationInput);
+
+    node.appendChild(longAnswerEntry);
   }
 }
 
@@ -235,6 +281,10 @@ class MultipleChoice extends BlockEmbed {
             correctAnswer.innerHTML = "Correct answer is: " + inputAnswer;
             newArticle.append(response);
             newArticle.append(correctAnswer);
+            let correctExplanation = document.createElement("p");
+            correctExplanation.innerHTML = "Explanation: " + formInfo.explanation;
+            newArticle.append(correctExplanation);
+            newArticle.append()
             mcCreate.append(newArticle);
             newArticle.style.backgroundColor = "#ffccbb";
           } else {
