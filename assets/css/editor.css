@@ -75,7 +75,6 @@ a,
 .button {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
-  
 }
 
 a:focus,
@@ -96,7 +95,6 @@ button {
   outline: medium none;
   text-decoration: none;
   border-radius: 12px;
-  margin-top: 10px;
 }
 
 button:focus, input:focus, input:focus, textarea, textarea:focus {
@@ -1420,7 +1418,7 @@ ul.breadcrumb li a {
 }
 
 input {
-  margin-top: 10px;
+  margin-top: 7px;
 }
 /* Menu Search
 -------------------------------------------------------*/
