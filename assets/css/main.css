@@ -2742,7 +2742,7 @@ input.main-search-input:-ms-input-placeholder {
 }
 
 .border_btn:hover, .border_btn.active {
-  color: #ffffff;
+  color: #FF723A;
   -webkit-box-shadow: 5px 15px 60px rgba(255, 114, 58, 0.3);
           box-shadow: 5px 15px 60px rgba(255, 114, 58, 0.3);
   border-color: #e75115;
