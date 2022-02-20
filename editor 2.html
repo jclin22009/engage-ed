@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <!-- Include Quill stylesheet -->
+  <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+  </head>
+
+  <!-- Create the editor container -->
+  <div id="editor">
+    <p>Hello World!</p>
+  </div>
+
+  <script>
+
+  function writetolog() {
+    var x = document.getElementsByClassName('ql-editor')[0].innerHTML;
+    console.log(x);
+  }
+
+  </script>
+
+  <button onclick="getHtml()">Publish Lesson</button>
+
+  <!-- Include the Quill library -->
+  <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+  <script src="customQuill.js"></script>
+  <script src="functions.js"></script>
+  <script src="task_list.js"></script>
+
+</html>
