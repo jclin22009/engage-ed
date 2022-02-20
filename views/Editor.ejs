@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <!-- Include Quill stylesheet -->
+  <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand ms-3" href="#">Engag<b>Ed</b></a>
+      <button class="btn btn-outline-success my-2 my-sm-0 me-3" onclick="uploadEditorContent()">Create</button>
+
+    </nav>
+
+</head>
+
+<body>
+  <!-- Add site header with padding-->
+
+  <!-- Add site content with padding-->
+  <!-- Create the toolbar container -->
+  <div id="toolbar">
+    <select class="ql-size">
+      <option value="small"></option>
+      <!-- Note a missing, thus falsy value, is used to reset to default -->
+      <option selected></option>
+      <option value="large"></option>
+      <option value="huge"></option>
+    </select>
+    <button class="ql-divider"></button>
+
+    <button class="ql-bold">Bold</button>
+    <button class="ql-italic">Italic</button>
+    <button class="ql-underline">Underline</button>
+
+    <button class="ql-divider"></button>
+
+    <button class="ql-video">Video</button>
+    <button class="ql-image"></button>
+    <button class="ql-link"></button>
+    <button class="ql-formula"></button>
+
+    <button class="ql-divider"></button>
+
+    <button class="ql-list" value="ordered"></button>
+    <button class="ql-list" value="bullet"></button>
+    <button class="ql-indent" value="-1"></button>
+    <button class="ql-indent" value="+1"></button>
+    <button class="ql-divider"></button>
+
+    <button id="custom-button"><b>?</b></button>
+    <button id="custom-button"><b>o</b></button>
+
+  </div>
+  <!-- <div id="sidebar-controls">
+    <button id="image-button"><i class="fa fa-camera"></i></button>
+    <button id="video-button"><i class="fa fa-play"></i></button>
+    <button id="tweet-button"><i class="fa fa-twitter"></i></button>
+    <button id="divider-button"><i class="fa fa-minus"></i></button>
+  </div> -->
+
+  <!-- Create the editor container -->
+  <div id="editor">
+    <p>Hello World!</p>
+  </div>
+
+  <!-- Include the Quill library -->
+  <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+  <script src="assets/js/customQuill.js"></script>
+  <script src="assets/js/publish-client.js"></script>
+</body>
+
+</html>
