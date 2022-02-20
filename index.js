@@ -37,32 +37,16 @@ app.get("/browse",function(req,res){
     }
 
     res.render("Browse", {data: files});
-
-    //listing all files using forEach
-    files.forEach(function (file) {
-        // Do whatever you want to do with the file
-        console.log(file);
     });
-    });
-})
-
-app.get("/testcourse",function(req,res){
-    res.render("Course");
 })
 
 app.get("/viewcourse",function(req,res){
-    //var x = document.cookie;
-    //console.log("Cookie is " + x);
     var lessonTitle = req.cookies['lesson'];
     res.render("Boilerplate", {data: lessonTitle});
-    /*var lessonTitle = req.header("X-Lesson");
-    res.render("Boilerplate", {data: lessonTitle});*/
 })
 
 app.post("/publish",function (req, res, next) {
-    console.log("Received req");
     var lessonTitle = req.header("X-Title");
-    console.log(lessonTitle);
     var body = req.body;
     fs.writeFile("lessons/" + lessonTitle + ".ejs", body, function(err) {
       if (err) {
