@@ -5,28 +5,28 @@
   <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-  
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand ms-3" href="index.html">Engag<b>Ed</b></a>
       <button class="btn btn-outline-success my-2 my-sm-0 me-3" type="submit">Create</button>
 
     </nav>
-    
+
 </head>
 
 <body>
   <!-- Add site header with padding-->
-  
+
   <!-- Add site content with padding-->
   <!-- Create the toolbar container -->
   <div id="toolbar">
     <select class="ql-size">
-      <option value="small"></option>
+      <option value="small">Caption</option>
       <!-- Note a missing, thus falsy value, is used to reset to default -->
       <option selected></option>
-      <option value="large"></option>
-      <option value="huge"></option>
+      <option value="large">Section</option>
+      <option value="huge">Title</option>
     </select>
     <button class="ql-divider"></button>
 
@@ -50,8 +50,8 @@
     <button class="ql-indent" value="+1"></button>
     <button class="ql-divider"></button>
 
-    <button id="custom-button"><b>?</b></button>
-    <button id="custom-button"><b>o</b></button>
+    <button id="longAnswer"><b>?</b></button>
+    <button id="multipleChoice"><b>o</b></button>
 
   </div>
   <!-- <div id="sidebar-controls">
@@ -69,8 +69,6 @@
   <!-- Include the Quill library -->
   <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
   <script src="customQuill.js"></script>
-  <script src="functions.js"></script>
-  <script src="task_list.js"></script>
 </body>
 
 </html>
