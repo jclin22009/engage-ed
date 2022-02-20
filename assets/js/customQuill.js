@@ -166,7 +166,8 @@ class LongAnswer extends BlockEmbed {
       })
     })
 
-    node.appendChild(longAnswerEntry);
+    let thisDiv = document.querySelector(".ql-editor");
+    thisDiv.appendChild(longAnswerEntry);
   }
 }
 
@@ -387,8 +388,8 @@ class MultipleChoice extends BlockEmbed {
 
     MultipleChoice.count++;
 
-    node.appendChild(multipleChoiceEntry);
-
+    let thisDiv = document.querySelector(".ql-editor");
+    thisDiv.appendChild(multipleChoiceEntry);
   }
 }
 
