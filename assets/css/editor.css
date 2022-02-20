@@ -96,6 +96,7 @@ button {
   outline: medium none;
   text-decoration: none;
   border-radius: 12px;
+  margin-top: 10px;
 }
 
 button:focus, input:focus, input:focus, textarea, textarea:focus {
