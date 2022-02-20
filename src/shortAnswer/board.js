@@ -2,14 +2,6 @@
 const MOVE_HERE_TEXT = "— Move here —";
 
 /**************************************/
-
-
-
-
-
-
-
-
 /* Functions to add columns or cards, delete */
 const genericAddColumn = (input) => {
   let existingColumnNames = document.querySelectorAll(".column .columnTitle");
