@@ -35,6 +35,7 @@ class LongAnswer extends BlockEmbed {
 // define elements of long answer
   static _addLongAnswer1(node) {
     LongAnswer.count++;
+    let thisDiv = document.querySelector(".ql-editor");
 
     //create section where long answers can be inputted
     let longAnswerEntry = document.createElement("section");
@@ -106,7 +107,9 @@ class LongAnswer extends BlockEmbed {
         answer: longForm.teacherAnswer.value,
         explanation: longForm.teacherExplanation.value
       };
-      longAnswerEntry.remove();
+
+      longForm.remove();
+      longAnswerHeader.remove();
 
       //create a new article that allows student entry
       let studentAnswer = document.createElement("article");
@@ -115,7 +118,6 @@ class LongAnswer extends BlockEmbed {
       let thisQuestion = document.createElement("h3");
       thisQuestion.innerHTML = "Question: " + formInfo.question;
       studentAnswer.append(thisQuestion);
-      console.log(thisQuestion);
 
       //create a student entry form, append to article
       let studentEntryForm = document.createElement("form");
@@ -134,7 +136,7 @@ class LongAnswer extends BlockEmbed {
       studentEntryForm.append(studentSubmit);
 
       //append new article
-      node.appendChild(studentAnswer);
+      longAnswerEntry.appendChild(studentAnswer);
 
       studentEntryForm.addEventListener("submit", () => {
         event.preventDefault();
@@ -166,7 +168,6 @@ class LongAnswer extends BlockEmbed {
       })
     })
 
-    let thisDiv = document.querySelector(".ql-editor");
     thisDiv.appendChild(longAnswerEntry);
   }
 }
@@ -235,6 +236,7 @@ class MultipleChoice extends BlockEmbed {
 
   static _addMultipleChoice1(node) {
     //create section
+    let thisDiv = document.querySelector(".ql-editor");
     let multipleChoiceEntry = document.createElement("section");
 
     //create header, append to section
@@ -304,7 +306,9 @@ class MultipleChoice extends BlockEmbed {
         answer: mcForm.mcAnswer.value,
         explanation: mcForm.mcExplanation.value
       };
-      multipleChoiceEntry.remove();
+      mcHeader.remove();
+      mcForm.remove();
+      mcRequest.remove();
 
       //create a new article that contains the question, allows option entry
 
@@ -336,14 +340,14 @@ class MultipleChoice extends BlockEmbed {
       mcCreate.append(saveButton);
 
       //add the new article to the node
-      node.appendChild(mcCreate);
+      multipleChoiceEntry.appendChild(mcCreate);
 
       //what to do if addOption is clicked
       addOption.addEventListener("submit", () => {
         event.preventDefault();
         let newOption = document.createElement("input");
         newOption.type = "radio";
-        let option = addOption.addedOption.value
+        let option = "  " + addOption.addedOption.value;
         newOption.name = option;
         let inputAnswer = formInfo.answer;
 
@@ -387,9 +391,8 @@ class MultipleChoice extends BlockEmbed {
     })
 
     MultipleChoice.count++;
-
-    let thisDiv = document.querySelector(".ql-editor");
     thisDiv.appendChild(multipleChoiceEntry);
+
   }
 }
 
