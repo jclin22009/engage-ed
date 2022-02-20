@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1> Multiple Choice Question</h1>
+
+<p> Q1: What is the correct spelling for 'Amogus'? </p>
+
+<input type="radio" id="spelling1" name="spelling" value="amogus">
+<label for="spelling1">amogus</label><br>
+<input type="radio" id="spelling2" name="spelling" value="Among Us">
+<label for=spelling2">Among Us</label><br>
+<input type="radio" id="spelling3" name="spelling" value="AMOGUS">
+<label for="spelling3">AMOGUS</label>
+
+<p> <button id ="chosenSpell">Submit</button></p>
+
+<p id = "output">
+
+<script>
+let button = document.getElementById("chosenSpell");
+let correctAnswer = document.getElementById("spelling2");
+button.addEventListener("click", evaluateCorrectness);
+function evaluateCorrectness() {
+    let output = document.getElementById("output");
+    let spells = document.getElementsByName("spelling");
+    for (let x of spells) {
+        if (x.checked) {
+            if (x == correctAnswer) {
+                output.innerText = "Correct" 
+            } else {
+                output.innerText = "Incorrect"
+            }
+        }
+    }
+}
+</script>
+
+</body>
+</html>

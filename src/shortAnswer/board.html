@@ -5,13 +5,10 @@
     <title>Task Board | Assignment 2</title>
 
     <!-- These two lines provide automatic page and style reloading when files change -->
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/lib/client/updater.js" defer></script>
 
     <link rel="stylesheet" href="base_styles.css">
     <link rel="stylesheet" href="my_styles.css">
 
-    <script src="import_export.js" defer></script>
     <script src="board.js" defer></script>
   </head>
   <body>
@@ -32,11 +29,24 @@
           <form id="saForm">
             <label for="teacherQuestion">Question:</label>
             <input type="text" name="question" id="teacherQuestion" required>
-            <label for="teacherQuestion">Answer:</label>
+            <label for="teacherAnswer">Answer:</label>
             <input type="text" name="teacherAnswer" required>
-            <label for="teacherQuestion">Explanation:</label>
+            <label for="teacherExplanation">Explanation:</label>
             <input type="text" name="teacherExplanation">
             <button type="submit" id="addCard">Add Short Answer</button>
+          </form>
+        </section>
+
+        <section>
+          <h2>Add Multiple Choice</h2>
+          <form id="mcForm">
+            <label for="mcQuestion">Question:</label>
+            <input type="text" name="question" id="mcQuestion" required>
+            <label for="mcTAnswer">Answer:</label>
+            <input type="text" name="mcTAnswer" required>
+            <label for="mcTExplanation">Explanation:</label>
+            <input type="text" name="mcTExplanation">
+            <button type="submit" id="addCard">Add Multiple Choice</button>
           </form>
         </section>
       </div>
@@ -62,10 +72,20 @@
       </div>
     </article>
 
-    <article class="template card color">
-      <h4 class="answer">Answer:</h4>
-      <h1 class="correctAnswer">[TEMPLATE]</h1>
-      <h1 class="explanation"></h1>
+    <article class="template shortkey card">
+      <h3 class="answer">Answer:</h3>
+      <p class="correctAnswer">[TEMPLATE]</p>
+      <h3 class="explanation">Explanation:</h3>
+      <p class="correctExplanation">[TEMPlATE]</p>
+    </article>
+
+    <article class="template mchoice">
+      <p class="tQuestion"></p>
+      <form id="addOption">
+        <input type="text" name="newOption" id="addedOption">
+        <button type="submit" id="submitOption">Add This Option</button>
+      </form>
+      <button class="saveMC" id="save">Save Question</button>
     </article>
   </body>
 </html>
