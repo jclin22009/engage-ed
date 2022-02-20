@@ -46,7 +46,7 @@ input, button {
 
 /* Unfortunately, we can't simply define this rule on .template, because a later selector may
    override it, so we use two class selectors to be more specific. */
-.hidden, .template.column, .template.card {
+.hidden, .template.column, .template.card, .template.shortkey{
   display: none;
 }
 
@@ -123,6 +123,13 @@ input, button {
   border-radius: 0.25rem;
   margin: 0.5rem 0;
   padding: 0.75rem 0.5rem;
+}
+
+.card .color {
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  background-color: #add8e6;
 }
 
 .card {

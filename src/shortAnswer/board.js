@@ -20,7 +20,7 @@ const genericAddColumn = (input) => {
   return newColumn;
 }
 
-const genericAddShortanswer = (inputQuestion) => {
+const genericAddShortanswer = (inputQuestion, inputAnswer, inputExplanation) => {
   event.preventDefault();
   let board = document.getElementById("board");
   if (!board.querySelector(".column")) {
@@ -41,7 +41,13 @@ const genericAddShortanswer = (inputQuestion) => {
   shortForm.addEventListener("submit", () => {
     event.preventDefault();
     let userAnswer = shortForm.studentAnswer.value;
-    let templateSA = document.querySelector(".template.card");
+    let templateKey = document.querySelector(".template.shortkey");
+    let newKey = templateKey.cloneNode(true);
+    newKey.classList.remove("template");
+    newKey.querySelector(".correctAnswer").textContent = inputAnswer;
+    newKey.querySelector(".correctExplanation").textContent = inputExplanation;
+    shortForm.after(newKey);
+    console.log(newKey);
   });
   return newSA;
 }
@@ -73,7 +79,13 @@ const addShortanswer = (event) => {
   event.preventDefault();
   cleanup();
   let form = document.querySelector("#saForm");
-  let newShort = genericAddShortanswer(form.teacherQuestion.value);
+  let formInfo = {
+    question: form.teacherQuestion.value,
+    answer: form.teacherAnswer.value,
+    explanation: form.teacherExplanation.value
+  }
+  console.log(formInfo);
+  let newShort = genericAddShortanswer(formInfo.question, formInfo.answer, formInfo.explanation);
   let column = document.querySelectorAll(".column")[0];
   if (!column) {
     return;
