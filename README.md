@@ -1,6 +1,6 @@
 # EngagEd
 
-EngagEd is a website intended to allow any person to teach whatever they'd like in a highly customizable way, and let learners access lessons on a wide plethora of content. It contains a simplified webpage creator meant to let educators easily customize their own webpage for classes; the creator contains a text editor based off standard word processors, and comes with education-tailored functions, such as adding short answer and multiple-choice questions. Prospective students can use the "Browse Courses" page to look through courses and their instructors.
+EngagEd is a website that allows any person to teach whatever they'd like in a highly customizable way, and lets learners access lessons on a wide variety of content. It contains a simplified webpage creator that lets educators easily customize their own lessons; the creator features a UI similar to modern word processors, and comes with education-tailored functions like adding quiz questions. Learners can browse all lessons on the platform.
 
 EngagEd is built with Express.js and Node.js.
 
