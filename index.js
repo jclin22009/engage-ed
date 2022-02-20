@@ -34,7 +34,9 @@ app.get("/browse",function(req,res){
     var filenamesNoExt = []
 
     function removeExt(file) {
-      filenamesNoExt.push(path.parse(file).name);
+      if (file[0] != ".") {
+        filenamesNoExt.push(path.parse(file).name);
+      }
     }
 
     filenames.forEach(removeExt);
@@ -71,5 +73,5 @@ app.post("/publish",function (req, res, next) {
 // is not taken by any other process
 app.listen(8080,function(error) {
     if(error) throw error
-        console.log("Server created Successfully on PORT 8080")
+        console.log("EngageEd started successfully!PORT 8080")
 })
