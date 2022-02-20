@@ -47,6 +47,11 @@ app.get("/testcourse",function(req,res){
     res.render("Course");
 })
 
+app.get("/viewcourse",function(req,res){
+    var lessonTitle = req.header("X-Lesson");
+    res.render("Boilerplate", {data: lessonTitle});
+})
+
 app.post("/publish",function (req, res, next) {
     console.log("Received req");
     var lessonTitle = req.header("X-Title");
