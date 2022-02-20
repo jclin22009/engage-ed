@@ -58,6 +58,10 @@ app.get("/viewcourse",function(req,res){
     res.render("Boilerplate", {data: lessonTitle});
 })
 
+app.get("/afterpublish",function(req,res){
+    res.render("AfterPublish");
+})
+
 app.post("/publish",function (req, res, next) {
     var lessonTitle = req.header("X-Title");
     var body = req.body;
