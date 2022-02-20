@@ -24,6 +24,10 @@ app.get("/editor",function(req,res){
     res.render("Editor");
 })
 
+app.get("/lessons",function(req,res){
+    res.render("Lessons");
+})
+
 app.get("/test",function(req,res){
     res.render("Upload");
 })
