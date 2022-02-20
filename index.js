@@ -64,6 +64,7 @@ app.post("/publish",function (req, res, next) {
         return console.error(err);
       }
     });
+    res.sendStatus(200);
 })
 
 // Take any port number of your choice which
