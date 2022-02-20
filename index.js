@@ -2,6 +2,8 @@ const express = require("express")
 const path = require("path")
 const bodyParser = require("body-parser")
 const fs = require("fs");
+const cookieParser = require("cookie-parser");
+
 const app = express()
 
 // View Engine Setup
@@ -15,6 +17,7 @@ app.use(express.static(__dirname));
 app.use(bodyParser.text({
   type: "text/html"
 }));
+app.use(cookieParser());
 
 app.get("/",function(req,res){
     res.render("Home");
@@ -27,30 +30,34 @@ app.get("/editor",function(req,res){
 app.get("/browse",function(req,res){
     var lessons = path.join(__dirname, 'lessons');
 
-    fs.readdir(lessons, function (err, files) {
+    var filenames = fs.readdirSync(lessons);
+    var filenamesNoExt = []
+
+    function removeExt(file) {
+      filenamesNoExt.push(path.parse(file).name);
+    }
+
+    filenames.forEach(removeExt);
+
+    res.render("Browse", {data: filenamesNoExt});
+
+    /*fs.readdir(lessons, function (err, files) {
     //handling error
     if (err) {
         return console.log('Unable to scan directory: ' + err);
     }
 
     res.render("Browse", {data: files});
-
-    //listing all files using forEach
-    files.forEach(function (file) {
-        // Do whatever you want to do with the file
-        console.log(file);
-    });
-    });
+    });*/
 })
 
-app.get("/testcourse",function(req,res){
-    res.render("Course");
+app.get("/viewcourse",function(req,res){
+    var lessonTitle = req.cookies['lesson'];
+    res.render("Boilerplate", {data: lessonTitle});
 })
 
 app.post("/publish",function (req, res, next) {
-    console.log("Received req");
     var lessonTitle = req.header("X-Title");
-    console.log(lessonTitle);
     var body = req.body;
     fs.writeFile("lessons/" + lessonTitle + ".ejs", body, function(err) {
       if (err) {
