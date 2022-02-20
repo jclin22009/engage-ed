@@ -36,6 +36,19 @@
             <button type="submit" id="addCard">Add Short Answer</button>
           </form>
         </section>
+
+        <section>
+          <h2>Add Multiple Choice</h2>
+          <form id="mcForm">
+            <label for="mcQuestion">Question:</label>
+            <input type="text" name="question" id="mcQuestion" required>
+            <label for="mcTAnswer">Answer:</label>
+            <input type="text" name="mcTAnswer" required>
+            <label for="mcTExplanation">Explanation:</label>
+            <input type="text" name="mcTExplanation">
+            <button type="submit" id="addCard">Add Multiple Choice</button>
+          </form>
+        </section>
       </div>
     </section>
 
@@ -59,11 +72,20 @@
       </div>
     </article>
 
-    <article class="template shortkey">
+    <article class="template shortkey card">
       <h3 class="answer">Answer:</h3>
       <p class="correctAnswer">[TEMPLATE]</p>
       <h3 class="explanation">Explanation:</h3>
       <p class="correctExplanation">[TEMPlATE]</p>
+    </article>
+
+    <article class="template mchoice">
+      <p class="tQuestion"></p>
+      <form id="addOption">
+        <input type="text" name="newOption" id="addedOption">
+        <button type="submit" id="submitOption">Add This Option</button>
+      </form>
+      <button class="saveMC" id="save">Save Question</button>
     </article>
   </body>
 </html>

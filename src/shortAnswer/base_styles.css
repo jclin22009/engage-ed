@@ -46,7 +46,7 @@ input, button {
 
 /* Unfortunately, we can't simply define this rule on .template, because a later selector may
    override it, so we use two class selectors to be more specific. */
-.hidden, .template.column, .template.card, .template.shortkey{
+.hidden, .template.column, .template.card, .template.shortkey, .template.mchoice{
   display: none;
 }
 
@@ -86,6 +86,16 @@ input, button {
 }
 
 #saForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#mcForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.mcForm {
   display: flex;
   flex-direction: column;
 }
