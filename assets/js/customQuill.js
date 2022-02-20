@@ -347,7 +347,7 @@ class MultipleChoice extends BlockEmbed {
         event.preventDefault();
         let newOption = document.createElement("input");
         newOption.type = "radio";
-        let option = "  " + addOption.addedOption.value;
+        let option = addOption.addedOption.value;
         newOption.name = option;
         let inputAnswer = formInfo.answer;
 
