@@ -25,11 +25,40 @@ app.get("/editor",function(req,res){
 })
 
 app.get("/browse",function(req,res){
-    res.render("Browse");
+    var lessons = path.join(__dirname, 'lessons');
+
+    fs.readdir(lessons, function (err, files) {
+    //handling error
+    if (err) {
+        return console.log('Unable to scan directory: ' + err);
+    }
+
+    res.render("Browse", {data: files});
+
+    //listing all files using forEach
+    files.forEach(function (file) {
+        // Do whatever you want to do with the file
+        console.log(file);
+    });
+    });
 })
 
-app.get("/test",function(req,res){
-    res.render("Upload");
+app.get("/testcourse",function(req,res){
+    var lessons = path.join(__dirname, 'lessons');
+    fs.readdir(lessons, function (err, files) {
+    //handling error
+    if (err) {
+        return console.log('Unable to scan directory: ' + err);
+    }
+
+    res.render("Course", {data: files});
+
+    //listing all files using forEach
+    files.forEach(function (file) {
+        // Do whatever you want to do with the file
+        console.log(file);
+    });
+    });
 })
 
 app.post("/publish",function (req, res, next) {
