@@ -30,14 +30,25 @@ app.get("/editor",function(req,res){
 app.get("/browse",function(req,res){
     var lessons = path.join(__dirname, 'lessons');
 
-    fs.readdir(lessons, function (err, files) {
+    var filenames = fs.readdirSync(lessons);
+    var filenamesNoExt = []
+
+    function removeExt(file) {
+      filenamesNoExt.push(path.parse(file).name);
+    }
+
+    filenames.forEach(removeExt);
+
+    res.render("Browse", {data: filenamesNoExt});
+
+    /*fs.readdir(lessons, function (err, files) {
     //handling error
     if (err) {
         return console.log('Unable to scan directory: ' + err);
     }
 
     res.render("Browse", {data: files});
-    });
+    });*/
 })
 
 app.get("/viewcourse",function(req,res){
