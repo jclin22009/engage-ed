@@ -35,14 +35,138 @@ class LongAnswer extends BlockEmbed {
 // define elements of long answer
   static _addLongAnswer1(node) {
     LongAnswer.count++;
-    const header = document.createElement('h2');
-    header.innerHTML = `${LongAnswer.count}. We have a question for you`;
-    const field = document.createElement('TEXTAREA');
-    field.placeholder = 'Type your answer';
 
-    node.appendChild(header);
-    node.appendChild(field);
+    //create section where long answers can be inputted
+    let longAnswerEntry = document.createElement("section");
 
+    //create header, add to section
+    let longAnswerHeader = document.createElement("h3");
+    longAnswerHeader.innerHTML = "Add Long Answer Question";
+    longAnswerEntry.append(longAnswerHeader);
+
+    //create form, add to section
+    let longForm = document.createElement("form");
+    longForm.id = "saForm";
+    longAnswerEntry.append(longForm);
+
+    //add labels and inputs to form
+    let questionInput = document.createElement("input");
+    questionInput.type = "text";
+    questionInput.name = "question";
+    questionInput.id = "teacherQuestion";
+    let questionLabel = document.createElement("label");
+    questionLabel.innerHTML = "Question: ";
+    questionLabel.for = questionInput;
+    longForm.append(questionLabel);
+    longForm.append(questionInput);
+
+    let qBr = document.createElement("br");
+    longForm.append(qBr);
+
+    //create input and label for answer. append to form
+    let answerInput = document.createElement("input");
+    answerInput.type = "text";
+    answerInput.name = "answer";
+    answerInput.id = "teacherAnswer";
+    let answerLabel = document.createElement("label");
+    answerLabel.innerHTML = "Answer: ";
+    answerLabel.for = answerInput;
+    longForm.append(answerLabel);
+    longForm.append(answerInput);
+
+    let aBr = document.createElement("br");
+    longForm.append(aBr);
+
+    //create input and label for explanation. append to form
+    let explanationInput = document.createElement("input");
+    explanationInput.type = "text";
+    explanationInput.name = "explanation";
+    explanationInput.id = "teacherExplanation";
+    let explanationLabel = document.createElement("label");
+    explanationLabel.innerHTML = "Explanation: ";
+    explanationLabel.for = explanationInput;
+    longForm.append(explanationLabel);
+    longForm.append(explanationInput);
+
+    let eBr = document.createElement("br");
+    longForm.append(eBr);
+
+    //create submit button, append to form
+    let shortSubmit = document.createElement("button");
+    shortSubmit.id = "addCard";
+    shortSubmit.innerHTML = "Add Short Answer";
+    shortSubmit.type = "submit";
+    longForm.append(shortSubmit);
+
+    longForm.addEventListener("submit", () => {
+      // save inputted info, delete form
+      event.preventDefault();
+      let formInfo = {
+        question: longForm.teacherQuestion.value,
+        answer: longForm.teacherAnswer.value,
+        explanation: longForm.teacherExplanation.value
+      };
+      longAnswerEntry.remove();
+
+      //create a new article that allows student entry
+      let studentAnswer = document.createElement("article");
+
+      //create a question, append to article
+      let thisQuestion = document.createElement("h3");
+      thisQuestion.innerHTML = "Question: " + formInfo.question;
+      studentAnswer.append(thisQuestion);
+      console.log(thisQuestion);
+
+      //create a student entry form, append to article
+      let studentEntryForm = document.createElement("form");
+      studentAnswer.append(studentEntryForm);
+
+      //create an input for student answer and button to submit, append to form
+      let studentInput = document.createElement("input");
+      studentInput.type = "text";
+      studentInput.id = "studentAnswer";
+
+      let studentSubmit = document.createElement("button");
+      studentSubmit.type = "submit";
+      studentSubmit.innerHTML = "Submit Response";
+
+      studentEntryForm.append(studentInput);
+      studentEntryForm.append(studentSubmit);
+
+      //append new article
+      node.appendChild(studentAnswer);
+
+      studentEntryForm.addEventListener("submit", () => {
+        event.preventDefault();
+
+        //create key article
+        let shortKey = document.createElement("article");
+
+        //create answer header and paragraph, append
+        let answerHeader = document.createElement("h3");
+        answerHeader.innerHTML = "Teacher's Answer: ";
+        let answerText = document.createElement("p");
+        answerText.innerHTML = formInfo.answer;
+        shortKey.append(answerHeader);
+        shortKey.append(answerText);
+
+        //add a break
+        let teacherBreak = document.createElement("br");
+        shortKey.append(teacherBreak);
+
+        //create explanation header and paragraph, append
+        let explanationHeader = document.createElement("h3");
+        explanationHeader.innerHTML = "Teacher's Explanation: ";
+        let explanationText = document.createElement("p");
+        explanationText.innerHTML = formInfo.explanation;
+        shortKey.append(explanationHeader);
+        shortKey.append(explanationText);
+
+        studentAnswer.after(shortKey);
+      })
+    })
+
+    node.appendChild(longAnswerEntry);
   }
 }
 
@@ -235,6 +359,10 @@ class MultipleChoice extends BlockEmbed {
             correctAnswer.innerHTML = "Correct answer is: " + inputAnswer;
             newArticle.append(response);
             newArticle.append(correctAnswer);
+            let correctExplanation = document.createElement("p");
+            correctExplanation.innerHTML = "Explanation: " + formInfo.explanation;
+            newArticle.append(correctExplanation);
+            newArticle.append()
             mcCreate.append(newArticle);
             newArticle.style.backgroundColor = "#ffccbb";
           } else {
