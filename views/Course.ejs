@@ -4,14 +4,7 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <h1>Amogus</h1>
-    <ul>
-    <% data.forEach(function(dat) { %>
-        <li><%= dat %></li>
-        <li><%= dat.image%></li>
-        <li><%= dat.description%></li>
-    <% }); %>
-    </ul>
-    <% include('Baka.ejs') %>
+    <h1>Amogus res.render("Browse.ejs")</h1>
+    <%- include('Baka.ejs') %>
   </body>
 </html>

@@ -44,21 +44,7 @@ app.get("/browse",function(req,res){
 })
 
 app.get("/testcourse",function(req,res){
-    var lessons = path.join(__dirname, 'lessons');
-    fs.readdir(lessons, function (err, files) {
-    //handling error
-    if (err) {
-        return console.log('Unable to scan directory: ' + err);
-    }
-
-    res.render("Course", {data: files});
-
-    //listing all files using forEach
-    files.forEach(function (file) {
-        // Do whatever you want to do with the file
-        console.log(file);
-    });
-    });
+    res.render("Course");
 })
 
 app.post("/publish",function (req, res, next) {
