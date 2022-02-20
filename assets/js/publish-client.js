@@ -11,4 +11,6 @@ function uploadEditorContent() {
 
   var editorContent = document.getElementsByClassName("ql-editor")[0].innerHTML;
   xhr.send(editorContent);
+
+  window.location.href = "/";
 }
