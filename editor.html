@@ -3,23 +3,36 @@
     <!-- Include Quill stylesheet -->
   <link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
   </head>
-
+  
+  <!-- Create the toolbar container -->
+  <div id="toolbar">
+    <select class="ql-size">
+      <option value="small"></option>
+      <!-- Note a missing, thus falsy value, is used to reset to default -->
+      <option selected></option>
+      <option value="large"></option>
+      <option value="huge"></option>
+      <option value="Question"></option>
+    </select>
+    <button class="ql-bold">Bold</button>
+    <button class="ql-italic">Italic</button>
+    <button class="ql-video">bruh</button>
+    <button class="ql-divider"></button>
+    <button type="button" class="task-list"></button>
+    <button id="custom-button">question</button>
+  </div>
+  <!-- <div id="sidebar-controls">
+    <button id="image-button"><i class="fa fa-camera"></i></button>
+    <button id="video-button"><i class="fa fa-play"></i></button>
+    <button id="tweet-button"><i class="fa fa-twitter"></i></button>
+    <button id="divider-button"><i class="fa fa-minus"></i></button>
+  </div> -->
+  
   <!-- Create the editor container -->
   <div id="editor">
     <p>Hello World!</p>
   </div>
-
-  <script>
-
-  function writetolog() {
-    var x = document.getElementsByClassName('ql-editor')[0].innerHTML;
-    console.log(x);
-  }
-
-  </script>
-
-  <button onclick="getHtml()">Publish Lesson</button>
-
+  
   <!-- Include the Quill library -->
   <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
   <script src="customQuill.js"></script>
@@ -27,3 +40,4 @@
   <script src="task_list.js"></script>
 
 </html>
+
