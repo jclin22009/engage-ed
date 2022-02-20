@@ -24,8 +24,8 @@ app.get("/editor",function(req,res){
     res.render("Editor");
 })
 
-app.get("/lessons",function(req,res){
-    res.render("Lessons");
+app.get("/browse",function(req,res){
+    res.render("Browse");
 })
 
 app.get("/test",function(req,res){
